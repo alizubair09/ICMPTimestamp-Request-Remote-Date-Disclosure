@@ -3,7 +3,8 @@ from scapy.all import *
 
 def get_remote_timestamp(host):
     # Send ICMP timestamp request and capture response
-    ans, unans = sr(IP(dst=host)/ICMP(type="timestamp_request"), timeout=2, verbose=False)
+    ans, unans = sr(IP(dst=host)/ICMP(type=13), timeout=2, verbose=False)
+
     
     if ans:
         # Extract the original timestamp from the response
